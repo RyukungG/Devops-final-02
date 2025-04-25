@@ -1,5 +1,19 @@
-### Demo project accompanying a [Consul crash course video](https://www.youtube.com/watch?v=s3I1kKKfjtQ) on YouTube and GCP microservice demo
+## Demo project accompanying a [Consul crash course video](https://www.youtube.com/watch?v=s3I1kKKfjtQ) on YouTube and GCP microservice demo
 
+### Terraform Files
+
+1. `providers.tf` – Specifies the cloud provider to be used with Terraform.
+2. `variables.tf` – Defines various variables that assist in resource creation on the cloud.
+3. `main.tf` – Contains the primary resource definitions and configurations.
+
+### Kubernetes Files
+
+1. `config-consul.yaml` – A configuration file applied **after** deploying Consul to the cluster. It defines deployments and services for the online store, including annotations that enable service discovery through metadata.
+2. `config.yaml` – Used **before** Consul is deployed. It sets up the deployments and services for the online store without annotations.
+3. `consul-mesh-gateway.yaml` – Defines a mesh gateway that facilitates connectivity between two different cloud environments.
+4. `consul-values.yaml` – Contains the values required for installing Consul using Helm charts.
+5. `exported-service.yaml` – Exports the `shippingservice` from a Linode-based cluster to be accessible from the primary EKS cluster.
+6. `service-resolver.yaml` – Configures the `shippingservice` from Linode as a backup or failover option for the same service running on EKS.
 
 Terraform commands to execute the script
 
